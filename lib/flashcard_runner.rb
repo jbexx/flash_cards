@@ -1,4 +1,5 @@
 require './lib/card'
+require './lib/card_generator'
 require './lib/deck'
 require './lib/round'
 
@@ -7,12 +8,16 @@ require './lib/round'
 # Create a new round with the deck
 # Start round with new method called 'start'
 
-cards = [
-  Card.new("What is the capital of Colorado?", "Denver", :Geography),
-  Card.new("What is 5 + 7?", "12", :Math),
-  Card.new("What is the capital of China", "Beijing", :Geography),
-  Card.new("What is the square root of 4?", "2", :Math)
-]
+# cards = [
+#   Card.new("What is the capital of Colorado?", "Denver", :Geography),
+#   Card.new("What is 5 + 7?", "12", :Math),
+#   Card.new("What is the capital of China", "Beijing", :Geography),
+#   Card.new("What is the square root of 4?", "2", :Math)
+# ]
+
+card_generator = CardGenerator.new("./cards.txt")
+cards = card_generator.read_file
+p cards
 
 categories = cards.reduce([]) { |acc, card| 
     if acc.include?(card.category)

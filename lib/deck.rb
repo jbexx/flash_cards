@@ -9,17 +9,9 @@ class Deck
   end
 
   def cards_in_category(category)
-
-    wanted_cards = [];
-
-    cards.each do |card|
-      if card.category == category
-        wanted_cards.push(card)
-      else
-        # do nothing?
-      end
+    @cards.select do |card|
+      card.category == category
     end
-    return wanted_cards
   end
 
 end

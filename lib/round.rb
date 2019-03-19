@@ -38,12 +38,8 @@ class Round
   def number_correct_by_category(category)
     number_correct = 0;
 
-    if @turns.count == 0
-      return 0
-    end
-
     @turns.each do |turn|
-      if turn.card.category == category && turn.card.answer == turn.guess
+      if turn.card.category == category && turn.correct?
         number_correct += 1
       end
     end
