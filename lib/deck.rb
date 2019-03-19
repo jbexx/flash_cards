@@ -10,16 +10,16 @@ class Deck
 
   def cards_in_category(category)
 
-    wantedCards = [];
+    wanted_cards = [];
 
     cards.each do |card|
       if card.category == category
-        wantedCards.push(card)
+        wanted_cards.push(card)
       else
         # do nothing?
       end
     end
-    return wantedCards
+    return wanted_cards
   end
 
 end
