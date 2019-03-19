@@ -17,8 +17,7 @@ class Round
   def take_turn(guess)
     new_turn = Turn.new(guess, @current_card)
 
-    add_turn = @turns.push(new_turn)
-    @turns = add_turn
+    @turns << new_turn
 
     if deck.count >= @turns.length
       @current_card = deck.cards[@turns.length]
@@ -44,10 +43,8 @@ class Round
     end
 
     @turns.each do |turn|
-      if turn.card.category == category
-        if turn.card.answer == turn.guess
-          number_correct += 1
-        end
+      if turn.card.category == category && turn.card.answer == turn.guess
+        number_correct += 1
       end
     end
 
