@@ -48,13 +48,9 @@ class Round
   end
 
   def percent_correct_by_category(category)
-    tried_of_category = @turns.count{ |turn| turn.card.category === category }
-    
-    if tried_of_category
-      return (number_correct_by_category(category).to_f / tried_of_category * 100).round(2)
-    else 
-      return 0.to_i
-    end
+    tried_of_category = @turns.count{ |turn| turn.card.category == category }
+
+    (number_correct_by_category(category) / (tried_of_category.nonzero? || 1) * 100).round(2)
   end
 
 end

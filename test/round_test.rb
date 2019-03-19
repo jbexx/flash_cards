@@ -177,7 +177,7 @@ class RoundTest < Minitest::Test
     round.take_turn("Juneau")
 
     assert_equal 100, round.percent_correct_by_category(:Geography)
-    # assert_equal 0, round.percent_correct_by_category(:STEM)
+    assert_equal 0, round.percent_correct_by_category(:STEM)
 
     round.take_turn("Mars")
 
