@@ -17,7 +17,6 @@ require './lib/round'
 
 card_generator = CardGenerator.new("./cards.txt")
 cards = card_generator.read_file
-p cards
 
 categories = cards.reduce([]) { |acc, card| 
     if acc.include?(card.category)
